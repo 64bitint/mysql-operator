@@ -87,9 +87,9 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "64bitint/mysql-operator:8.0.31-2.0.7"
+          #tags: "64bitint/mysql-operator:8.0.31-2.0.7"
           #tags: ${{ steps.meta.outputs.tags }}
-          #tags: ${{ steps.get-tag.outputs.tag }}
+          tags: ${{ steps.get-tag.outputs.tag }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
