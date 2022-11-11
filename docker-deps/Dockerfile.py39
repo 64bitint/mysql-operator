@@ -1,0 +1,19 @@
+# Copyright (c) 2021, Oracle and/or its affiliates.
+#
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
+#
+
+FROM oraclelinux:8 AS pip-stage
+
+RUN dnf install -y python39
+RUN dnf install -y python39-pip
+
+COPY docker-deps/requirements.txt .
+
+RUN pip3 install --target=/tmp/site-packages -r requirements.txt
+
+FROM oraclelinux:8-slim AS python-deps-39
+
+COPY --from=pip-stage /tmp/site-packages /usr/lib/mysqlsh/python-packages
+
+
