@@ -65,7 +65,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get Tag
         id: get-tag
-        run: echo "tag=$(./tag.sh)" >> $GITHUB_OUTPUT
+        run: echo "tag=$IMAGE_NAME:$(./tag.sh)" >> $GITHUB_OUTPUT
       - name: Generate Dockerfile
         run: ./gen_dockerfile_inc_python.sh
 
