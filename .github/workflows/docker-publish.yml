@@ -65,7 +65,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get Tag
         id: get-tag
-        run: ./tag.sh
+        run: echo "tag=$(./tag.sh)" >> $GITHUB_OUTPUT
       - name: Generate Dockerfile
         run: ./gen_dockerfile_inc_python.sh
 
@@ -86,7 +86,7 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           #tags: ${{ steps.meta.outputs.tags }}
-          tags: ${{ steps.get-tag.outputs }}
+          tags: ${{ steps.get-tag.outputs.tag }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
