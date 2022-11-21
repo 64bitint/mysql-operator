@@ -168,7 +168,7 @@ spec:
             ]
           env:
             - name: DEFAULT_IMAGE_REPOSITORY
-              Value: 64bitint
+              value: 64bitint
             - name: MYSQLSH_USER_CONFIG_HOME
               value: /mysqlsh
           volumeMounts:
