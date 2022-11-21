@@ -167,7 +167,7 @@ spec:
               "operator",
             ]
           env:
-            - name: DEFAULT_IMAGE_REPOSITORY
+            - name: MYSQL_OPERATOR_DEFAULT_REPOSITORY
               value: 64bitint
             - name: MYSQLSH_USER_CONFIG_HOME
               value: /mysqlsh
